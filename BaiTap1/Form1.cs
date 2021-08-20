@@ -16,5 +16,44 @@ namespace BaiTap1
         {
             InitializeComponent();
         }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnTiepTuc_Click(object sender, EventArgs e)
+        {
+            txtDayVuaNhap.ResetText();
+            txtTongCacPTTrongDay.ResetText();
+            txtNhapSo.ResetText();
+            txtTongChan.ResetText();
+            txtTongLe.ResetText();
+            x = "";
+        }
+        int tongday = 0;
+        int tongchan = 0;
+        int tongle = 0;
+        string x = " ";
+
+        private void btnNhap_Click(object sender, EventArgs e)
+        {
+            int x = Convert.ToInt32(txtNhapSo.Text);
+            txtDayVuaNhap.Text += x.ToString().Trim() + " ";
+
+            tongday += x;
+            txtTongCacPTTrongDay.Text = tongday.ToString();
+
+            if (x % 2 == 0)
+            {
+                tongchan += x;
+                txtTongChan.Text = tongchan.ToString();
+            }
+            else
+            {
+                tongle += x;
+                txtTongLe.Text = tongle.ToString();
+            }
+        }
     }
 }
